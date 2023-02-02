@@ -16,7 +16,7 @@ jobs:
       - name: Safety
         run: |
          pip install safety
-         safety check -r App/app/flask/requirements.txt > logs/result-safety.txt
+         safety check -r Environment/App/app/flask/requirements.txt > logs/result-safety.txt
       - uses: actions/upload-artifact@v2
         with:
           name: logs
@@ -26,7 +26,7 @@ jobs:
       - name: Pyraider
         run: |
           pip install pyraider
-          pyraider check -f App/app/flask/requirements.txt > logs/result-pyraider.txt
+          pyraider check -f Environment/App/app/flask/requirements.txt > logs/result-pyraider.txt
           
       - uses: actions/upload-artifact@v2
         with:
