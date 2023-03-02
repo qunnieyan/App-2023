@@ -16,13 +16,13 @@ jobs:
         with:
           exclude_path: logs/exclude.txt
           
-    build:
-      runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
       
-      steps:
-       - uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
   
-       - name: Build docker-compose
+      - name: Build docker-compose
          run: docker-compose -f ./Environment/App/docker-compose.yml up --build -d
   sca:
     runs-on: ubuntu-latest
