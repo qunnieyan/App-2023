@@ -4,7 +4,13 @@ on:
   push:
     branches: [main]
 
-jobs:   
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: max/secret-scan@master
+       
   sca:
     runs-on: ubuntu-latest
 
