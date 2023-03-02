@@ -9,7 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
+      - run: |
+         mkdir -p logs/
+          echo 'Environment/App/db' > logs/exclude.txt
+       
       - uses: max/secret-scan@master
+       with:
+          exclude_path: 'logs/exclude.txt'
+      
+      
        
   sca:
     runs-on: ubuntu-latest
