@@ -63,3 +63,19 @@ jobs:
       with:
         name: logs
         path: logs/output.json
+  
+  dast:
+    needs: [build, sca]
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout
+       uses: actions/checkout@v2
+    
+     - name: Build Image for testing
+       run: docker-compose -f ./Environment/App/docker-compose.yml up --build -d
+ 
+     - name: ZAP Scan
+       uses: zaproxy/action-baseline@v0.6.1
+       with:
+         target: 'http://localhost:5000'
+         cmd_options: '-a'
