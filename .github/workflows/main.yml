@@ -104,7 +104,7 @@ jobs:
           file: ./Environment/App/app/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: sristisravan/tic4302-demo:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tic4302-demo:latest
   container-scan:
     needs: [deploy]
     runs-on: ubuntu-latest
