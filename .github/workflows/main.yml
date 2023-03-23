@@ -104,7 +104,7 @@ jobs:
           file: ./Environment/App/app/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tic4302-demo:latest
+          tags: qunyan/tic4302-demo:latest
   container-scan:
     needs: [deploy]
     runs-on: ubuntu-latest
@@ -112,7 +112,7 @@ jobs:
      - name: Run Dockle
        uses: erzz/dockle-action@v1.1.1
        with:
-         image: sristisravan/tic4302-demo
+         image: qunyan/tic4302-demo
          report-format: json
          report-name: dockle-report
         
